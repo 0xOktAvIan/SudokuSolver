@@ -12,7 +12,6 @@
 #include "Field.h"
 
 #include <fstream>
-#include <string>
 
 Field::Field() : numbers_(81) {
   for (int i = 0; i < 81; i++) {
@@ -20,15 +19,17 @@ Field::Field() : numbers_(81) {
   }
 }
 
-Field::Field(const char* file_path) : numbers_(81) {
+Field::Field(std::string file_path) : numbers_(81) {
   std::ifstream istream(file_path);
 
   std::string line;
   while (getline(istream, line)) {
-    unsigned int num;
+    unsigned int num = 0;
     for (int i = 0; i < line.length(); i++) {
-      numbers_.push_back(line[i] - 0x30);
+      numbers_[i + num] = line[i] - 0x30;
     }
+
+    num += 9;
   }
 }
 

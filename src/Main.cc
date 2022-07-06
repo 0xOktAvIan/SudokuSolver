@@ -14,5 +14,5 @@
 
 int main() {
   Field field("FILEPATH");
-  Solver solver(field);
+  Solver::Solve(field);
 }

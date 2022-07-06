@@ -11,6 +11,7 @@
 
 #pragma once
 
+#include <string>
 #include <vector>
 
 /**
@@ -32,7 +33,7 @@ class Field {
    *
    * path to the file containing the Sudoku field
    */
-  Field(const char* file_path);
+  Field(std::string file_path);
 
   /**
    * @brief get a value of the Field at index
